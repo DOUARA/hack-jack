@@ -9,7 +9,7 @@ The assembly language is a direct mapping to the machine language, each one of t
 
 ## Hack Language specification
 
-
+More details about the hack assembly language can be found [here](http://nand2tetris-questions-and-answers-forum.32033.n3.nabble.com/Introduction-to-Hack-Assembly-Language-td4032232.html)
 
 ## Project 
 To get used to assembly language, We've developed 2 basic assembly programs one to handle multiplication operation, the other to interact with the screen memory map.
