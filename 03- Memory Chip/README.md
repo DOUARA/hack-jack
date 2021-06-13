@@ -10,5 +10,5 @@ out(t)= in(t-1)
 ```
 
 Using **Mux** gate with the flip-flop we can build the **register** chip which can store one bit information for multiple time units.
-building up fron the 1 bit register we build the 16K RAM which is a RAM of 16k registers each one holds 16 bit of information
+building up from the 1 bit register we build the 16K RAM which is a RAM of 16k registers each one holds 16 bit of information
 also we've built the counter chip which is an important component of the CPU as we will see in a while 
