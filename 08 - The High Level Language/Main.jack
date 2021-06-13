@@ -1,0 +1,10 @@
+/* The main class for jack-paint app */
+
+class Main {
+    function void main() {
+        var JackPaint jack_paint;
+        let jack_paint = JackPaint.new();
+        do jack_paint.start();
+        return;
+    }
+}

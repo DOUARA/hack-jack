@@ -1,0 +1,65 @@
+class JackPaint {
+    field Tool tool;
+
+    constructor JackPaint new() {
+        // Draw the tool 
+        let tool = Tool.new(5);
+        
+        return this;
+    }
+    
+    
+    method void start() {
+        // Drawing the interface
+        do Interface.init();
+
+        // Starting JackPaint controller 
+        do control();
+
+        return;
+    }
+
+    method void control() {
+        var int direction;
+        var char key;
+       
+        while(key = 0) {
+            let key = Keyboard.keyPressed();
+        }
+
+          
+        if(key = 140) {
+           do Screen.clearScreen();
+           do Interface.init();
+           do tool.reset();
+        }
+       
+        if(key = 32) {
+            do tool.poke(true);
+        }
+
+        if (key = 130) { // left
+            do tool.move(1);
+        }
+
+        if (key = 131) { // top 
+            do tool.move(2);
+        }
+
+        if (key = 132) { // right
+            do tool.move(3);
+        } 
+
+        if (key = 133) { // bottom
+            do tool.move(4);
+        } 
+
+        do Sys.wait(200);
+       
+
+        do control();
+                
+        return;
+
+    }
+}

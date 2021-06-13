@@ -1,0 +1,95 @@
+class Tool {
+    field int length, type, cordX, cordY;
+    field boolean poked;
+    
+    /* constructor */
+    constructor Tool new(int lengthArg) {
+        let length = lengthArg;
+        let cordX = 256;
+        let cordY = 127;
+        let poked = false;
+        let type = 1;
+        do draw();
+        return this;
+    }
+    
+    /* Draws the tool on the screen */
+    method void draw() {
+       
+        do Screen.drawRectangle(cordX, cordY, cordX + length, cordY + length);
+        return; 
+    }
+
+    method void reset() {
+        let cordX = 256;
+        let cordY = 127;
+        do draw();
+        return;
+    }
+
+    /* Sets the Type of tool, pencil or ereaser */
+    method void setType(int t) {
+        // 1 is pencil, 0 is ereaser
+        let type = t;
+        return;
+    }
+    /* Moves the tool */
+    method void move(int direction) {
+       
+
+        if (~poked) 
+        {
+            do Screen.setColor(false);
+            do draw();      
+        } 
+        
+        do Screen.setColor(true);
+       
+        
+        if( direction = 1 ) { // left
+            if((cordX - length) > 0) {
+                let cordX = cordX - length;
+            } else {
+                let cordX = 0;
+            }
+        }
+
+        if( direction = 2 ) { // top
+            if((cordY - length) > 0) {
+                let cordY = cordY - length;
+            } else {
+                let cordY = 0;
+            }
+        }
+
+        if( direction = 3 ) { // right
+            if((cordX + length) < 511) {
+                let cordX = cordX + length;
+            } else {
+                let cordX = 511 - length;
+            }
+        }
+
+        if( direction = 4 ) { // bottom
+            if((cordY + length) < 217) {
+                let cordY = cordY + length;
+            } 
+        }
+
+        do draw();
+       
+        do poke(false);
+
+        return;
+    }
+
+    /* Draws or ereases the current location of the tool */
+    method void poke(boolean pokedArg) {
+        let poked = pokedArg;
+        if(type = 0) {
+            let poked = false;
+        }
+        return;
+    }
+
+}

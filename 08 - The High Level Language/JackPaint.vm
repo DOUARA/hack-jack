@@ -1,0 +1,110 @@
+function JackPaint.new 0
+push constant 1
+call Memory.alloc 1
+pop pointer 0
+push constant 5
+call Tool.new 1
+pop this 0
+push pointer 0
+return
+function JackPaint.start 0
+push argument 0
+pop pointer 0
+call Interface.init 0
+pop temp 0
+push pointer 0
+call JackPaint.control 1
+pop temp 0
+push constant 0
+return
+function JackPaint.control 2
+push argument 0
+pop pointer 0
+label WHILE_EXP0
+push local 1
+push constant 0
+eq
+not
+if-goto WHILE_END0
+call Keyboard.keyPressed 0
+pop local 1
+goto WHILE_EXP0
+label WHILE_END0
+push local 1
+push constant 140
+eq
+if-goto IF_TRUE0
+goto IF_FALSE0
+label IF_TRUE0
+call Screen.clearScreen 0
+pop temp 0
+call Interface.init 0
+pop temp 0
+push this 0
+call Tool.reset 1
+pop temp 0
+label IF_FALSE0
+push local 1
+push constant 32
+eq
+if-goto IF_TRUE1
+goto IF_FALSE1
+label IF_TRUE1
+push this 0
+push constant 0
+not
+call Tool.poke 2
+pop temp 0
+label IF_FALSE1
+push local 1
+push constant 130
+eq
+if-goto IF_TRUE2
+goto IF_FALSE2
+label IF_TRUE2
+push this 0
+push constant 1
+call Tool.move 2
+pop temp 0
+label IF_FALSE2
+push local 1
+push constant 131
+eq
+if-goto IF_TRUE3
+goto IF_FALSE3
+label IF_TRUE3
+push this 0
+push constant 2
+call Tool.move 2
+pop temp 0
+label IF_FALSE3
+push local 1
+push constant 132
+eq
+if-goto IF_TRUE4
+goto IF_FALSE4
+label IF_TRUE4
+push this 0
+push constant 3
+call Tool.move 2
+pop temp 0
+label IF_FALSE4
+push local 1
+push constant 133
+eq
+if-goto IF_TRUE5
+goto IF_FALSE5
+label IF_TRUE5
+push this 0
+push constant 4
+call Tool.move 2
+pop temp 0
+label IF_FALSE5
+push constant 200
+call Sys.wait 1
+pop temp 0
+push pointer 0
+call JackPaint.control 1
+pop temp 0
+push constant 0
+return

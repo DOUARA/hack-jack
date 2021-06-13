@@ -1,0 +1,149 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/Screen.jack
+
+/**
+ * A library of functions for displaying graphics on the screen.
+ * The Hack physical screen consists of 512 rows (indexed 0..511, top to bottom)
+ * of 256 pixels each (indexed 0..255, left to right). The top left pixel on 
+ * the screen is indexed (0,0).
+ */
+class Screen {
+    static int currentColor;
+    static Array twoToThe;
+
+    /** Initializes the Screen. */
+    function void init() {
+        var int index;
+        let twoToThe = Array.new(16);
+        let twoToThe[0] = 1;
+        let index = 1;
+        while(index<16) {
+            let twoToThe[index] = twoToThe[index-1] + twoToThe[index-1];
+            let index = index + 1;
+        }
+       
+        do Screen.setColor(true);
+        return;
+    }
+
+    /** Erases the entire screen. */
+    function void clearScreen() {
+        var int word;
+        let word = 16384;
+        while(~(word > 24575)) {
+            do Memory.poke(word, 0);
+            let word = word + 1;
+        }
+        return;
+    }
+
+    /** Sets the current color, to be used for all subsequent drawXXX commands.
+     *  Black is represented by true, white by false. */
+    function void setColor(boolean b) {
+        if(b) {
+            let currentColor = 1;
+        } else {
+            let currentColor = 0;
+        }
+        return;
+    }
+
+    /** Draws the (x,y) pixel, using the current color. */
+    
+    function void drawPixel(int x, int y) {
+        var int address, xMod, selectedWord;
+        let address = (y*32) + (x/16);
+        let xMod = x & 15;
+        let selectedWord = Memory.peek(16384 + address);
+        if(currentColor = 1) {
+            let selectedWord = selectedWord | twoToThe[xMod];
+        } else {
+            let selectedWord = selectedWord & (-1 - twoToThe[xMod]);
+        }
+        do Memory.poke(16384 + address, selectedWord);
+        return;
+    }
+
+    /** Draws a line from pixel (x1,y1) to pixel (x2,y2), using the current color. */
+    function void drawLine(int x1, int y1, int x2, int y2) {
+        /** Not so efficinet, to make it efficient you should write a function forEach direction **/
+        var int dx, dy, a, b, diff, pxCordX, pxCordY;
+        let dx = x2 - x1; 
+        let dy = y2 - y1; 
+        let a = 0;
+        let b = 0;
+        let diff = 0;
+
+        if(dy<0) {
+            let dy = Math.abs(dy);
+        }
+
+        if(dx<0) {
+            let dx = Math.abs(dx);
+        }
+
+        /** 
+        * b/a > dy/dx => b*dx > a*dy => a*dy-b*dx < 0 => diff = a*dy-b*dx 
+        */
+        while((~(a > dx)) & (~(b > dy))) {
+            let pxCordX = x1 + a;
+            let pxCordY= y1 + b;
+             
+            if((y2-y1) < 0) {
+                let pxCordY = y1-b;
+            }
+
+            if((x2-x1) < 0) {
+                let pxCordX = x1-a;
+            }
+
+            do Screen.drawPixel(pxCordX, pxCordY);
+            
+            if(diff<0) {
+                if (~(dx = 0)) {
+                    let a = a + 1;
+                }
+                let diff = diff + dy;
+            }
+
+            else {
+                if(~(dy =0)) {
+                    let b = b + 1;
+                }
+                let diff = diff - dx;
+            }
+
+            // Exit the loop because a = b = 0 in this case.
+            if((dx = 0) & (dy = 0)) { 
+                return;
+            }
+        }
+        return;
+    }
+
+    /** Draws a filled rectangle whose top left corner is (x1, y1)
+     * and bottom right corner is (x2,y2), using the current color. */
+    
+    function void drawRectangle(int x1, int y1, int x2, int y2) {
+        while(~(y1>y2)){
+            do Screen.drawLine(x1, y1, x2, y1);
+            let y1 = y1 + 1;
+        }
+        return;
+    }
+
+    /** Draws a filled circle of radius r<=181 around (x,y), using the current color. */
+    function void drawCircle(int x, int y, int r) {
+        var int dy, x1, x2;
+        let dy = -r;
+        while(~(dy>r)) {
+            let x1 = x - Math.sqrt((r*r)-(dy*dy)); // Pythagorian theory
+            let x2 = x + Math.sqrt((r*r)-(dy*dy));
+            do Screen.drawLine(x1, y+dy, x2, y+dy);          
+            let dy = dy + 1;
+        }
+        return;
+    }
+}

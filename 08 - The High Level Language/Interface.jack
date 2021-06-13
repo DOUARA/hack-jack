@@ -1,0 +1,38 @@
+class Interface {
+    
+    /* Draw the initial shapes and texts */
+    function void init() {
+        
+        // Draw bottom line 
+        do Screen.drawLine(0, 220, 511, 220);
+        
+        // Draw reset icon and its label
+        do Interface.drawResetIcon(7296 +28);
+        do Output.moveCursor(21, 59);
+        do Output.printString("ESC");
+
+        return;
+    }
+
+    function void drawResetIcon(int location) {
+		var int memAddress;
+        let memAddress = 16384 + location;
+        do Memory.poke(memAddress + 0, 0);
+        do Memory.poke(memAddress + 32, 0);
+        do Memory.poke(memAddress + 64, 16382);
+        do Memory.poke(memAddress + 96, 16382);
+        do Memory.poke(memAddress + 128, 12294);
+        do Memory.poke(memAddress + 160, 12678);
+        do Memory.poke(memAddress + 192, 12486);
+        do Memory.poke(memAddress + 224, 16358);
+        do Memory.poke(memAddress + 256, 16374);
+        do Memory.poke(memAddress + 288, 16358);
+        do Memory.poke(memAddress + 320, 198);
+        do Memory.poke(memAddress + 352, 390);
+        do Memory.poke(memAddress + 384, 6);
+        do Memory.poke(memAddress + 416, 16382);
+        do Memory.poke(memAddress + 448, 16382);
+        do Memory.poke(memAddress + 480, 0);
+        return;
+    }
+}

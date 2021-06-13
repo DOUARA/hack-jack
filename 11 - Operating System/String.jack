@@ -1,0 +1,156 @@
+// This file is part of www.nand2tetris.org
+// and the book "The Elements of Computing Systems"
+// by Nisan and Schocken, MIT Press.
+// File name: projects/12/String.jack
+
+/**
+ * Represents character strings. In addition for constructing and disposing
+ * strings, the class features methods for getting and setting individual
+ * characters of the string, for erasing the string's last character,
+ * for appending a character to the string's end, and more typical
+ * string-oriented operations.
+ */
+class String {
+    field Array currentStr;
+    field int strMaxLength;
+    field int count;
+
+
+    /** constructs a new empty string with a maximum length of maxLength
+     *  and initial length of 0. */
+    constructor String new(int maxLength) {
+        if (maxLength > 0) {
+            let currentStr = Array.new(maxLength);
+        } else {
+            let currentStr = Array.new(1);
+        }
+        
+        let strMaxLength = maxLength;
+        let count = 0;
+
+        return this;
+    }
+
+    /** Disposes this string. */
+    method void dispose() {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    /** Returns the current length of this string. */
+    method int length() {
+        var int index;
+        let index = 0;
+        while(~(currentStr[index] = 0)  & (index < strMaxLength)) {
+            let index = index + 1;
+        }
+        return index;
+    }
+
+    /** Returns the character at the j-th location of this string. */
+    method char charAt(int j) {
+        return currentStr[j];
+    }
+
+    /** Sets the character at the j-th location of this string to c. */
+    method void setCharAt(int j, char c) {
+        let currentStr[j] = c;
+        return;
+    }
+
+    /** Appends c to this string's end and returns this string. */
+    method String appendChar(char c) {
+        var int length; 
+        let length = length();
+        let currentStr[length] = c;
+        return this;
+    }
+
+    /** Erases the last character from this string. */
+    method void eraseLastChar() {
+        var int length; 
+
+        let count = count + 1;
+        let length = length();
+        let currentStr[length-1] = 0;
+        
+        return;
+    }
+
+    /** Returns the integer value of this string, 
+     *  until a non-digit character is detected. */
+    method int intValue() { // str = "123"
+        var int index, result, powerTen, minValue;
+        let result = 0;
+        let index = length() - 1;
+        let powerTen = 1;
+        let minValue = 0;
+
+        if( currentStr[0] = 45) {
+            let minValue = 1;
+        }
+        
+        while(~(index < minValue)) {
+            let result = result + ((currentStr[index]-48) * powerTen);
+            let powerTen = powerTen * 10;
+            let index = index - 1;
+        }
+
+        if(currentStr[0] = 45) {
+            let result = -result;
+        }
+
+        return result;
+    }
+
+    /** Sets this string to hold a representation of the given value. */
+    method void setInt(int val) {
+        var int index, length;
+        let index = 0;
+        let length = length();
+        
+        while (index < length) {
+            do eraseLastChar();
+            let index = index +1;
+        }
+
+        if(val < 0) {
+            do appendChar(45);
+        }
+        
+        do String.recursiveSetInt(this, val);
+        return;
+    }
+
+    function void recursiveSetInt(String str, int val) {
+        var int lastDigit, absVal;
+        let absVal = Math.abs(val);
+        let lastDigit = absVal - ((absVal/10)*10);
+        
+        if(absVal < 10) {
+            do str.appendChar(absVal + 48); // 48-57 are the ASCII codes for digits from 0 to 9
+            return;
+        } else {
+           do String.recursiveSetInt(str, absVal/10);
+           do str.appendChar(lastDigit + 48);
+        }
+        return;
+    }
+
+
+    /** Returns the new line character. */
+    function char newLine() {
+        return 128;
+    }
+
+    /** Returns the backspace character. */
+    function char backSpace() {
+        return 129;
+    }
+
+    /** Returns the double quote (") character. */
+    function char doubleQuote() {
+        return 34;
+    }
+    
+}

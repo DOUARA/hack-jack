@@ -1,0 +1,131 @@
+function Interface.init 0
+push constant 0
+push constant 220
+push constant 511
+push constant 220
+call Screen.drawLine 4
+pop temp 0
+push constant 7296
+push constant 28
+add
+call Interface.drawResetIcon 1
+pop temp 0
+push constant 21
+push constant 59
+call Output.moveCursor 2
+pop temp 0
+push constant 3
+call String.new 1
+push constant 69
+call String.appendChar 2
+push constant 83
+call String.appendChar 2
+push constant 67
+call String.appendChar 2
+call Output.printString 1
+pop temp 0
+push constant 0
+return
+function Interface.drawResetIcon 1
+push constant 16384
+push argument 0
+add
+pop local 0
+push local 0
+push constant 0
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 32
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 64
+add
+push constant 16382
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 96
+add
+push constant 16382
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 128
+add
+push constant 12294
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 160
+add
+push constant 12678
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 192
+add
+push constant 12486
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 224
+add
+push constant 16358
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 256
+add
+push constant 16374
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 288
+add
+push constant 16358
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 320
+add
+push constant 198
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 352
+add
+push constant 390
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 384
+add
+push constant 6
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 416
+add
+push constant 16382
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 448
+add
+push constant 16382
+call Memory.poke 2
+pop temp 0
+push local 0
+push constant 480
+add
+push constant 0
+call Memory.poke 2
+pop temp 0
+push constant 0
+return
