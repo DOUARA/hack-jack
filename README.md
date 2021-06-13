@@ -5,22 +5,24 @@ As a self-taught developer and in the aim of developing a solid understanding of
 
 The projects are composed into 2 parts, Hardware (1-5), Software Hierarchy (6-11), in the hardware part w've used a basic Hardware description language designed by the instructors, and for the software I used python3 for all the proejcts that requires a third party language. 
 
+![File_000](https://user-images.githubusercontent.com/39377174/121814105-3b171b80-cc67-11eb-95cc-f01340bdc5ee.png)
+
 ### Hardware
-1- Basic Logic Gates
-2- The ALU chip
-3- Memory Chip
-4- Machine Language 
-5- Computer Architecture 
+1- [Basic Logic Gates](https://github.com/DOUARA/jack-hack-a-complete-computing-system-from-scratch/tree/master/01%20-%20Basic%20Logic%20Gates)  
+2- [The ALU chip](https://github.com/DOUARA/jack-hack-a-complete-computing-system-from-scratch/tree/master/02-%20The%20ALU%20Chip)  
+3- [Memory Chip](https://github.com/DOUARA/jack-hack-a-complete-computing-system-from-scratch/tree/master/03-%20Memory%20Chip)  
+4- [Machine Language](https://github.com/DOUARA/jack-hack-a-complete-computing-system-from-scratch/tree/master/04-%20Machine%20Language)   
+5- [Computer Architecture](https://github.com/DOUARA/jack-hack-a-complete-computing-system-from-scratch/tree/master/05-%20Computer%20Architecture)   
 
 ### Software Hierarchy
-6- Virtual Machine - Stack Arithmetic 
-7- Virtual Machine - Program Control 
-8- High-Level Language 
-9-  Compiler - Syntax Analyzer 
-10- Compiler - Code Generator 
-11- Operating System 
+6- [Virtual Machine - Stack Arithmetic](https://github.com/DOUARA/jack-hack-a-complete-computing-system-from-scratch/tree/master/06%20-%20Virtual%20Machine%20-%20Stack%20Arithmetic)   
+7- [Virtual Machine - Program Control](https://github.com/DOUARA/jack-hack-a-complete-computing-system-from-scratch/tree/master/07-%20Virtual%20Machine%20-%20Program%20Control)   
+8- [High-Level Language](https://github.com/DOUARA/jack-hack-a-complete-computing-system-from-scratch/tree/master/08%20-%20The%20High%20Level%20Language)   
+9-  [Compiler - Syntax Analyzer](https://github.com/DOUARA/jack-hack-a-complete-computing-system-from-scratch/tree/master/09%20-%20Compiler%20-%20Syntax%20Analyzer)   
+10- [Compiler - Code Generator](https://github.com/DOUARA/jack-hack-a-complete-computing-system-from-scratch/tree/master/10-%20Compiler%20-%20Code%20Generator)   
+11- [Operating System](https://github.com/DOUARA/jack-hack-a-complete-computing-system-from-scratch/tree/master/11%20-%20Operating%20System)   
 
-I have provided a README file that explains each project separately, found on each project folder, I have also provided the notes that I was taking during the course. 
+I have provided a README file that explains each project separately, found on each project folder.
 
 For more information about the projects and the course you can check the offical website: [nand2tetris](http://nand2tetris.org) or [the book](https://www.amazon.com/Elements-Computing-Systems-Building-Principles/dp/0262640686/ref=sr_1_2?dchild=1&keywords=the+elements+of+computing+systems&qid=1623598899&sr=8-2)
 
