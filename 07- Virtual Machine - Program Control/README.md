@@ -4,7 +4,5 @@ In this project we extend the VM translator built on the previous project to han
 - Function call and return 
 - Branching, includes conditional and unconditional commands 
 
-For more information about the theory and implemntation, refer to the notes that accompanies the project 
-
 ## Project 
-the project is composed of the same modules explained on the previous project 
+The project is composed of the same modules explained on the previous project 
