@@ -17,6 +17,6 @@ We provided the source code and the compiled files (vm files).
 - You can move the square left, up, right, and down. 
 - Press 'space' at any given point to draw it 
 - To remove a square just get back to it 
-- Press ESC to start with a fresh canvas 
-
-[pic]
+- Press ESC to start with a fresh canvas   
+- 
+![Screenshot from 2021-06-13 17-17-18](https://user-images.githubusercontent.com/39377174/121814875-3c4a4780-cc6b-11eb-87a1-63a55a6b9364.png)
