@@ -5,7 +5,8 @@ As a self-taught developer and in the aim of developing a solid understanding of
 
 The projects are composed into 2 parts, Hardware (1-5), Software Hierarchy (6-11), in the hardware part w've used a basic Hardware description language designed by the instructors, and for the software I used python3 for all the proejcts that requires a third party language. 
 
-![File_000](https://user-images.githubusercontent.com/39377174/121814105-3b171b80-cc67-11eb-95cc-f01340bdc5ee.png)
+<img src="https://user-images.githubusercontent.com/39377174/121814105-3b171b80-cc67-11eb-95cc-f01340bdc5ee.png" alt="drawing" style="width:65%;"/>
+
 
 ### Hardware
 1- [Basic Logic Gates](https://github.com/DOUARA/jack-hack-a-complete-computing-system-from-scratch/tree/master/01%20-%20Basic%20Logic%20Gates)  
