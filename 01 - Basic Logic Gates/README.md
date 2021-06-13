@@ -1,5 +1,5 @@
 ## Boolean Algebra 
-Named according to his inventor [George Boole](https://en.wikipedia.org/wiki/George_Boole), Boolean Algebra is the field of study of boolean values (aka binary values), those values can be represented in many forms like (True, false), (Yes, No), (0,1). 
+Named according to its inventor [George Boole](https://en.wikipedia.org/wiki/George_Boole), Boolean Algebra is the field of study of boolean values (aka binary values), those values can be represented in many forms like (True, false), (Yes, No), (0,1). 
 We can perform certain actions on boolean values to produce other boolean values, those actions are called **boolean functions** 
 
 ### Boolean functions 
