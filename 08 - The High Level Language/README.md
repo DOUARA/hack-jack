@@ -1,5 +1,5 @@
 ## High Level Language
-In a step to facilatate computer programming and make programmers life easier, a layer of abstraction above the virtual machine is necessary, it is the high level language, a formal language that is close the the human thoughts, in this project we present a high level language called **jack** which is a quite similar to the know high level languages like Java and C.
+In a step to facilatate computer programming and make programmers life easier, a layer of abstraction above the virtual machine is necessary, it is the high level language, a formal language that is close the the human thoughts, in this project we present a high level language called **jack** which is a quite similar to the common high level languages like Java and C.
 the language specification can be found [here](https://classes.engineering.wustl.edu/cse365/jack.php) 
 
 ## Project 
